@@ -1,0 +1,15 @@
+<a href="/logout">logout</a>
+<p>Welcome {{currUser.name}}</p>
+<p>Topic: {{topic.title}} by {{topic._user.name}}</p>
+<p>description: {{topic.description}}</p>
+
+<form ng-submit="createAnswer()">
+    <p>Answer Title: <input type="text" ng-model="answer.title"></p>
+    <p>Answer Text: <input type="text" ng-model="answer.text"></p>
+    <input type="submit">
+</form>
+<div ng-repeat="answer in topic._answers">
+    <p><span class="answer_title">title: {{answer.title}}</span></p>
+    <p><span class="answer_body">{{answer._user.name}} said: {{answer.text}} </span><button type="button" ng-click="addLike(answer._id)">like</button> {{answer.upvote}}</p>
+
+</div>

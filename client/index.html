@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html ng-app="app">
+    <head>
+        <meta charset="utf-8">
+        <title>Discussion Board</title>
+        <style>
+            .product{
+                width: 100px;
+                height: 100px;
+                display: inline-block;
+                border: 1px solid black;
+            }
+                .product img{
+                    width: 40px;
+                    margin-left: 20px;
+                }
+                .product p{
+                    margin: 5px;
+                }
+            table{
+            }
+            table th{
+                border-top: 1px solid black;
+                border-right: 1px solid black;
+                padding: 5px;
+            }
+            table td{
+                border-top: 1px solid black;
+                border-right: 1px solid black;
+                padding: 5px;
+            }
+            .answer_title{
+                margin-left: 10px;
+            }
+            .answer_body{
+                margin-left: 20px;
+            }
+        </style>
+        <!-- import angular -->
+        <script src="angular/angular.js"></script>
+        <script src="angular-route/angular-route.js"></script>
+        <script src="app.js"></script>
+        <!-- import app js files -->
+        <script src="./controllers/session.js"></script>
+        <script src="./factories/session.js"></script>
+        <script src="./controllers/topicController.js"></script>
+        <script src="./factories/topicFactory.js"></script>
+        <script src="./controllers/dashController.js"></script>
+    </head>
+    <body>
+        <div ng-view></div>
+    </body>
+</html>
