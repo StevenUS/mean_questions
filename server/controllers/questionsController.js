@@ -1,22 +1,22 @@
 var mongoose = require("mongoose");
-var Topic = mongoose.model("Topic");
+var Question = mongoose.model("Question");
 var Answer = mongoose.model("Answer");
 var User = mongoose.model("User");
 
 module.exports = (function(){
     return{
         show: function(req, res){
-            Topic.find()
+            Question.find()
             .populate("_answers")
             .populate("_user")
-            .exec(function(err, topics){
+            .exec(function(err, questions){
                 if(err){
                     return res.json(err)
-                }res.json(topics)
+                }res.json(questions)
             })
         },
         showOne: function(req, res){
-            Topic.findById(req.params.id)
+            Question.findById(req.params.id)
             .populate(
                 {
                     path: "_answers",
@@ -24,16 +24,15 @@ module.exports = (function(){
                 }
             )
             .populate("_user")
-            .exec(function(err, topic){
+            .exec(function(err, question){
                 if(err){
                     return res.json(err);
-                }res.json(topic)
+                }res.json(question)
             })
         },
         create: function(req, res){
-            Topic.create(req.body, function(err, result){
+            Question.create(req.body, function(err, result){
                 if(err){
-                    console.log(err);
                     return res.json(err);
                 }res.json(result);
             })
@@ -43,14 +42,14 @@ module.exports = (function(){
                 if(err){
                     return res.json(err);
                 }
-                Topic.findOne({_id: answer._topic},function(err, topic){
+                Question.findOne({_id: answer._question},function(err, question){
                     if(err){
                         return res.json(err);
                     }
-                    topic._answers.push(answer);
-                    topic.save(function(err){
+                    question._answers.push(answer);
+                    question.save(function(err){
                         if(err){return res.json(err)}
-                        res.json(topic)
+                        res.json(question)
                     });
                 })
             })
@@ -60,7 +59,7 @@ module.exports = (function(){
                 if(err){
                     res.json(err);
                 }else{
-                    answer.upvote ++;
+                    answer.like ++;
                     answer.save(function(err, answer){
                         if(err){
                             res.json(err);

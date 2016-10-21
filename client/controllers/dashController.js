@@ -1,23 +1,15 @@
-app.controller("dashController", function($scope, topicFactory, sessionFactory){
-    $scope.topics = [];
+app.controller("dashController", function($scope, $location, questionFactory, sessionFactory){
     $scope.index = function(){
-        topicFactory.show(function(data){
-            $scope.topics = data;
+        questionFactory.show(function(data){
+            $scope.questions = data;
         })
     };
     $scope.index();
     sessionFactory.checkUser(function(data){
-        console.log(data.user);
         $scope.currUser = data.user;
         if(!$scope.currUser){
-            alert("no user in session")
+            alert("no user in session");
+            $location.url("/");
         }
     });
-    $scope.create = function(){
-        $scope.topic._user = $scope.currUser._id;
-        topicFactory.create($scope.topic, function(){
-           $scope.topic="";
-           $scope.index();
-        })
-    }
 })

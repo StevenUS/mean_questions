@@ -2,50 +2,60 @@
 <html ng-app="app">
     <head>
         <meta charset="utf-8">
-        <title>Discussion Board</title>
+        <title>Q and A</title>
         <style>
-            .product{
-                width: 100px;
-                height: 100px;
-                display: inline-block;
-                border: 1px solid black;
+            body{
+                font-family: sans-serif;
             }
-                .product img{
-                    width: 40px;
-                    margin-left: 20px;
-                }
-                .product p{
-                    margin: 5px;
-                }
             table{
             }
-            table th{
+            .question{
+                border-bottom: 1px solid black;
+            }
+            .dash_table th{
                 border-top: 1px solid black;
                 border-right: 1px solid black;
                 padding: 5px;
             }
-            table td{
+            .dash_table td{
                 border-top: 1px solid black;
                 border-right: 1px solid black;
                 padding: 5px;
             }
-            .answer_title{
-                margin-left: 10px;
-            }
-            .answer_body{
+            .answers_table{
                 margin-left: 20px;
             }
+                .answers_table td:nth-child(1){
+                    width: 300px;
+                }
+                .answers_table td:nth-child(2){
+                    width: 60px;
+                    text-align: center;
+                }
+                .table_data{
+                    display: block;
+                }
+                .table_data_d{
+                    display: block;
+                    margin-left: 10px;
+                }
+            h3{
+                margin: 0px;
+            }
+            h2{
+                margin: 1px;
+            }
         </style>
-        <!-- import angular -->
         <script src="angular/angular.js"></script>
         <script src="angular-route/angular-route.js"></script>
         <script src="app.js"></script>
-        <!-- import app js files -->
         <script src="./controllers/session.js"></script>
         <script src="./factories/session.js"></script>
-        <script src="./controllers/topicController.js"></script>
-        <script src="./factories/topicFactory.js"></script>
+        <script src="./controllers/questionController.js"></script>
+        <script src="./factories/questionFactory.js"></script>
         <script src="./controllers/dashController.js"></script>
+        <script src="./controllers/answerController.js"></script>
+        <script src="./controllers/addQuestionController.js"></script>
     </head>
     <body>
         <div ng-view></div>

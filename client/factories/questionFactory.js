@@ -1,21 +1,21 @@
-app.factory("topicFactory", ["$http", "$location", function($http, $location){
+app.factory("questionFactory", ["$http", "$location", function($http, $location){
     var factory = {};
     factory.show = function(callback){
-        $http.get('/topics').then(function(returned_data){
-            topics = returned_data.data;
-            callback(topics);
+        $http.get('/questions').then(function(returned_data){
+            questions = returned_data.data;
+            callback(questions);
 
         })
     };
     factory.showOne = function( id, callback){
-        $http.get('/topic/' + id).then(function(returned_data){
-            topic = returned_data.data;
-            callback(topic);
+        $http.get('/question/' + id).then(function(returned_data){
+            question = returned_data.data;
+            callback(question);
 
         })
     };
-    factory.create = function(topic, callback){
-        $http.post("/topic/create", topic)
+    factory.create = function(question, callback){
+        $http.post("/question/create", question)
         .then(function(data){
             if(typeof(callback) == "function"){
                 callback(data)
@@ -35,7 +35,6 @@ app.factory("topicFactory", ["$http", "$location", function($http, $location){
         })
     };
     factory.addLike = function(id, callback){
-        console.log(id)
         $http.put("/answer/addLike", id)
         .then(function(data){
             if(typeof(callback)=="function"){

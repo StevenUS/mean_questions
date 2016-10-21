@@ -9,9 +9,17 @@ app.config(function($routeProvider){
         templateUrl: "/partials/dashboard.html",
         controller: "dashController"
     })
-    .when("/topic/:id", {
-        templateUrl: "/partials/topic.html",
-        controller: "topicController"
+    .when("/question/add", {
+        templateUrl: "/partials/addQuestion.html",
+        controller: "addQuestionController"
+    })
+    .when("/question/:id", {
+        templateUrl: "/partials/question.html",
+        controller: "questionController"
+    })
+    .when("/answer/:id", {
+        templateUrl: "/partials/answer.html",
+        controller: "answerController"
     })
     .otherwise({
         redirectTo: "/"

@@ -1,0 +1,18 @@
+<a href="#/dashboard">home</a> |
+<a href="#/answer/{{question._id}}">answer this question</a> |
+<a href="/logout">logout</a>
+<div class="question">
+    <h1>{{question.title}}</h1>
+    <p>{{question.description}}</p>
+    <p>asked by: {{question._user.name}}</p>
+</div>
+    <table class="answers_table" ng-repeat="answer in question._answers | orderBy:'like':'-'" class="answer_body">
+        <tr>
+            <td>
+                <span class="table_data"><h3>{{answer._user.name}}:</h3></span>
+                <span class="table_data">{{answer.title}}</span>
+                <span class="table_data_d">{{answer.detail}}</span>
+            </td>
+            <td>{{answer.like}} likes <button type="button" ng-click="addLike(answer._id)">like</button></td>
+        </tr>
+    </table>

@@ -1,32 +1,18 @@
-<h2>User Dashboard</h2>
-<p>Welcome {{currUser.name}}</p>
-<p>
-    {{currUser._id}}
-</p>
+<h1>Welcome {{currUser.name}}</h1>
+<a href="#/question/add">Add Question</a> |
 <a href="/logout">logout</a>
-<table>
+<p>
+    Search Questions: <input type="text" ng-model="srchQ">
+</p>
+<table class="dash_table">
     <tr>
-        <th>Category</th>
-        <th>Topic</th>
-        <th>User</th>
-        <th>Posts</th>
+        <th>Question</th>
+        <th>Answers (QTY)</th>
+        <th>Actions</th>
     </tr>
-    <tr ng-repeat="topic in topics">
-        <td>{{topic.category}}</td>
-        <td><a href="#/topic/{{topic._id}}">{{topic.title}}</a></td>
-        <td>{{topic._user.name}}</td>
-        <td>{{topic._answers.length}}</td>
+    <tr ng-repeat="question in questions | filter: srchQ track by question.title">
+        <td>{{question.title}}</td>
+        <td>{{question._answers.length}}</td>
+        <td><a href="#/question/{{question._id}}">show</a> | <a href="#/answer/{{question._id}}">answer</a></td>
     </tr>
 </table>
-<form ng-submit="create()">
-    <p>Topic:<input type="text" ng-model="topic.title"></p>
-    <p>Description:</p><textarea name="name" rows="8" cols="40" ng-model="topic.description"></textarea>
-    <select ng-model="topic.category">
-        <option value="HTML">HTML</option>
-        <option value="CSS">CSS</option>
-        <option value="Python">Python</option>
-        <option value="MEAN">MEAN</option>
-        <option value="iOS">iOS</option>
-    </select>
-    <p><input type="submit"></p>
-</form>
