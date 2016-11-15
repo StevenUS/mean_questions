@@ -6,6 +6,10 @@ app.controller("addQuestionController", function($scope, $routeParams, $location
         }
     });
     $scope.create = function(){
+        if($scope.qForm.$pristine){
+            alert("question cannot be blank");
+            return;
+        }
         $scope.question._user = $scope.currUser._id;
         if($scope.question.title.length < 10){
             alert("question must be at least 10 characters");

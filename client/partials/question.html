@@ -1,15 +1,15 @@
-<a href="#/dashboard">home</a> |
-<a href="#/answer/{{question._id}}">answer this question</a> |
-<a href="/logout">logout</a>
+<a href="#/dashboard">Home</a> |
+<a href="#/answer/{{question._id}}">Answer this question</a> |
+<a href="/logout">Logout</a>
 <div class="question">
-    <h1>{{question.title}}</h1>
+    <h3>{{question.title}}</h3>
     <p>{{question.description}}</p>
     <p>asked by: {{question._user.name}}</p>
 </div>
     <table class="answers_table" ng-repeat="answer in question._answers | orderBy:'like':'-'" class="answer_body">
         <tr>
             <td>
-                <span class="table_data"><h3>{{answer._user.name}}:</h3></span>
+                <span class="table_data"><p>{{answer._user.name}}:</p></span>
                 <span class="table_data">{{answer.title}}</span>
                 <span class="table_data_d">{{answer.detail}}</span>
             </td>

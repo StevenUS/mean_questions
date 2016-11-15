@@ -13,6 +13,10 @@ app.controller("answerController", function($scope, $routeParams, $location, que
         }
     });
     $scope.createAnswer = function(){
+        if($scope.answerForm.$pristine){
+            alert("answer cannot be blank");
+            return;
+        }
         if($scope.answer.title.length < 5){
             alert("answer must be at least 5 characters")
             return;
