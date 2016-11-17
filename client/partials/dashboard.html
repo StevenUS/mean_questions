@@ -1,16 +1,34 @@
-<h1>Welcome {{currUser.name}}</h1>
-<a href="#/question/add">Add Question</a> |
-<a href="/logout">Logout</a><br><br>
-Search Questions: <input type="text" ng-model="srchQ">
-<table class="dash_table">
-    <tr>
-        <th>Question</th>
-        <th>Answers (QTY)</th>
-        <th>Actions</th>
-    </tr>
-    <tr ng-repeat="question in questions | filter: srchQ track by question.title">
-        <td>{{question.title}}</td>
-        <td>{{question._answers.length}}</td>
-        <td><a href="#/question/{{question._id}}">show</a> | <a href="#/answer/{{question._id}}">answer</a></td>
-    </tr>
-</table>
+<div class="container">
+    <h1>Welcome {{currUser.name}}</h1>
+    <div class="row">
+        <div class="six columns">
+            <a href="#/question/add">Add Question</a> |
+            <a href="/logout">Logout</a><br><br>
+        </div>
+        <div class="six columns">
+            Search Questions: <input type="text" ng-model="srchQ">
+        </div>
+    </div>
+    <div class="row">
+        <div class="six columns">
+            <h5>Questions</h5>
+        </div>
+        <div class="three columns">
+            <h5>Answers</h5>
+        </div>
+        <div class="three columns">
+            <h5>Actions</h5>
+        </div>
+    </div>
+    <div class="row" ng-repeat="question in questions | filter: srchQ track by question.title">
+        <div class="six columns">
+            <p>{{question.title}}</p>
+        </div>
+        <div class="three columns">
+            <p>{{question._answers.length}}</p>
+        </div>
+        <div class="three columns">
+            <p><a href="#/question/{{question._id}}">show</a> | <a href="#/answer/{{question._id}}">answer</a></p>
+        </div>
+    </div>
+</div>

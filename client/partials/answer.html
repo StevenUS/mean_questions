@@ -1,11 +1,15 @@
-<a href="#/dashboard">Home</a> |
-<a href="#/question/{{question._id}}">Go to Question</a> |
-<a href="/logout">Logout</a>
-<h2>{{question.title}} by {{question._user.name}}</h2>
-<p>{{question.description}}</p>
-<form ng-submit="createAnswer()" name="answerForm">
-    <p>Your Answer:</p><textarea ng-model="answer.title" rows="8" cols="40"></textarea>
-    <p>Details:</p>
-    <textarea ng-model="answer.detail" rows="8" cols="40"></textarea>
-    <p><input type="submit"> <a href="#/dashboard">cancel</a></p>
-</form>
+<div class="container">
+    <a href="#/dashboard">Home</a> |
+    <a href="#/question/{{question._id}}">Go to Question</a> |
+    <a href="/logout">Logout</a>
+    <h3>{{question.title}}</h3>
+    <h4 class="a_detail">by {{question._user.name}}</h4>
+    <p>{{question.description}}</p>
+    <form ng-submit="createAnswer()" name="answerForm">
+        <label>Your Answer:</label>
+        <textarea class="u-full-width" ng-model="answer.title" rows="8" cols="40"></textarea>
+        <label>Details:</label>
+        <textarea class="u-full-width" ng-model="answer.detail" rows="8" cols="40"></textarea>
+        <input type="submit"> <a href="#/dashboard"><button type="button" name="cancel">cancel</button></a>
+    </form>
+</div>
