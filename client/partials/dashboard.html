@@ -1,34 +1,42 @@
 <div class="container">
-    <h1>Welcome {{currUser.name}}</h1>
-    <div class="row">
-        <div class="six columns">
-            <a href="#/question/add">Add Question</a> |
-            <a href="/logout">Logout</a><br><br>
+    <div class="header">
+        <h1>Welcome {{currUser.name}}</h1>
+    </div>
+    <nav class="navbar" ng-controller="navController">
+        <div class="container">
+            <ul class="navbar-list">
+                <li class="navbar-item"><a class="navbar-link" href="#question/add">Add Question</a></li>
+                <li class="navbar-item"><a class="navbar-link" href="/logout">Logout</a></li>
+            </ul>
         </div>
+    </nav><br>
+    <div class="row">
+        <div class="six columns"></div>
         <div class="six columns">
             Search Questions: <input type="text" ng-model="srchQ">
         </div>
     </div>
     <div class="row">
-        <div class="six columns">
+        <div class="five columns">
             <h5>Questions</h5>
         </div>
-        <div class="three columns">
+        <div class="three columns a_qty">
             <h5>Answers</h5>
         </div>
-        <div class="three columns">
+        <div class="four columns a_qty">
             <h5>Actions</h5>
         </div>
     </div>
     <div class="row" ng-repeat="question in questions | filter: srchQ track by question.title">
-        <div class="six columns">
+        <div class="five columns">
             <p>{{question.title}}</p>
         </div>
-        <div class="three columns">
+        <div class="three columns a_qty">
             <p>{{question._answers.length}}</p>
         </div>
-        <div class="three columns">
-            <p><a href="#/question/{{question._id}}">show</a> | <a href="#/answer/{{question._id}}">answer</a></p>
+        <div class="four columns a_qty">
+            <a class="button button-primary" href="#/question/{{question._id}}">show</a>
+            <a class="button button-primary" href="#/answer/{{question._id}}">answer</a>
         </div>
     </div>
 </div>

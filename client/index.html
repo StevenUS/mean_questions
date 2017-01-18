@@ -4,47 +4,21 @@
         <meta charset="utf-8">
         <title>Q and A</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" media="screen" title="no title">
-        <style>
-            .question{
-                border-bottom: 1px solid black;
-            }
-            .a_user{
-                font-size: 15px;
-                display: block;
-                line-height: 40px;
-                font-weight: bold;
-            }
-            .a_title{
-                margin-left: 10px;
-                display: block;
-            }
-            .a_detail{
-                margin-left: 20px;
-                display: block;
-            }
-            .likecol{
-                text-align: center;
-            }
-            .a_like{
-                margin-top: 15px;
-                width: 100px;
-            }
-            .italic{
-                font-style: italic;
-            }
-        </style>
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="./css/custom.css">
+    </head>
+    <body>
+        <div ng-view></div>
         <script src="angular/angular.js"></script>
         <script src="angular-route/angular-route.js"></script>
         <script src="app.js"></script>
         <script src="./controllers/session.js"></script>
+        <script src="./controllers/navController.js"></script>
         <script src="./factories/session.js"></script>
         <script src="./controllers/questionController.js"></script>
         <script src="./factories/questionFactory.js"></script>
         <script src="./controllers/dashController.js"></script>
         <script src="./controllers/answerController.js"></script>
         <script src="./controllers/addQuestionController.js"></script>
-    </head>
-    <body>
-        <div ng-view></div>
     </body>
 </html>

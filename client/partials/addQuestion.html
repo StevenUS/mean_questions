@@ -1,7 +1,18 @@
 <div class="container">
-    <a href="#/dashboard">Home</a> |
-    <a href="/logout">Logout</a>
+    <!-- <a href="#/dashboard">Home</a> |
+    <a href="/logout">Logout</a> -->
+
+    <!-- skeleton navbar attempt -->
+
     <h1>New Question</h1>
+    <nav class="navbar" ng-controller="navController">
+        <div class="container">
+            <ul class="navbar-list">
+                <li class="navbar-item"><a class="navbar-link" href="#/dashboard">Home</a></li>
+                <li class="navbar-item"><a class="navbar-link" href="/logout">Logout</a></li>
+            </ul>
+        </div>
+    </nav><br>
     <form ng-submit="create()" name="qForm">
         <label>Question:</label>
         <textarea class="u-full-width" ng-model="question.title" rows="8" cols="40"></textarea>

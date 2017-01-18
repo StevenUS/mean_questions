@@ -1,17 +1,27 @@
 <div class="container">
-    <a href="#/dashboard">Home</a> |
-    <a href="#/answer/{{question._id}}">Answer this question</a> |
-    <a href="/logout">Logout</a>
     <div class="question">
         <h3>{{question.title}}</h3>
-        <p>{{question.description}}</p>
-        <p>asked by: {{question._user.name}}</p>
+        <p class="q_detail">{{question.description}}</p>
+        <p class="q_user">{{question._user.name}}</p>
     </div>
+    <nav class="navbar" ng-controller="navController">
+        <div class="container">
+            <ul class="navbar-list">
+                <li class="navbar-item"><a class="navbar-link" href="#/dashboard">Home</a></li>
+                <li class="navbar-item"><a class="navbar-link" href="#/answer/{{question._id}}">Answer Question</a></li>
+                <li class="navbar-item"><a class="navbar-link" href="/logout">Logout</a></li>
+            </ul>
+        </div>
+    </nav><br>
+    <!-- <a href="#/dashboard">Home</a> |
+    <a href="#/answer/{{question._id}}">Answer this question</a> |
+    <a href="/logout">Logout</a> -->
+
     <div class="row" ng-repeat="answer in question._answers | orderBy:'like':'-'" class="answer_body">
         <div class="eight columns">
-            <span class="a_user">{{answer._user.name}}:</span>
+            <span class="a_user">{{answer._user.name}}</span>
             <span class="a_title">{{answer.title}}</span>
-            <span class="a_detail">{{answer.detail}}</span>
+            <span class="a_detail" ng-if="answer.detail">{{answer.detail}}</span>
         </div>
         <!-- <div class="one column">
             <span class="a_like">{{answer.like}}</span>
